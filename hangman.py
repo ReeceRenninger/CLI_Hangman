@@ -171,7 +171,7 @@ if __name__ == "__main__":
     #!! Main Game Loop
     while not game_over(wrong_guesses, target_word, guessed_letters):
         draw_hanged_man(wrong_guesses)
-        print(f"YOur word is: {guessed_word}")
+        print(f"Your word is: {guessed_word}")
         print(
             "Current Guessed Letters: "
             f"{join_guessed_letters(guessed_letters)}\n"
@@ -187,4 +187,11 @@ if __name__ == "__main__":
         guessed_letters.add(player_guess)
         guessed_word = build_guessed_word(target_word, guessed_letters)
 
-        
+        # Game over trigger
+        draw_hanged_man(wrong_guesses)
+        if wrong_guesses == MAX_GUESSES:
+            print("Better luck next time!")
+        else:
+            print("You did it! Congratulations!")
+        print(f"Better luck next time, your word was: {target_word}")
+
